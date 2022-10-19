@@ -1,0 +1,23 @@
+{
+  "name": "server-files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tsuchikage/server-files.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tsuchikage/server-files/issues"
+  },
+  "homepage": "https://github.com/Tsuchikage/server-files#readme",
+  "dependencies": {
+    "require-dir-all": "^0.4.15"
+  }
+}

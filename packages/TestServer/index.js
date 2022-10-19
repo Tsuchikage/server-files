@@ -1,8 +1,5 @@
-// Init events.
-require("./events.js");
-
-// Init commands.
-require("./commands.js");
+var commands = require("require-dir-all")(__dirname + "/commands");
+var events = require("require-dir-all")(__dirname + "/events");
 
 // Init DataBase
 global.DB = require("./DB.js");
