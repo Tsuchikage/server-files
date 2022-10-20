@@ -83,6 +83,24 @@ mp.events.add("loginToServer", (player, login, pass) => {
   );
 });
 
+mp.events.add("registerToServer", (player, login, pass) => {
+  DB.Handle.query(
+    "INSERT INTO accounts (login, pass, socialClub, regIP, lastIP, regDate, lastDate) VALUES (?, ?, ?, ?, ?, NOW(), NOW())",
+    [login, pass, player.socialClub, player.ip, player.ip],
+    (e) => {
+      if (e) {
+        return player.notify("~r~Error!");
+        console.log(e);
+      } else {
+        player.notify("~g~Account created successfully");
+        player.call("regSuccess");
+        player.position = new mp.Vector3(100.08, -1951.92, 20.6011);
+        player.dimension = 0;
+      }
+    }
+  );
+});
+
 /* mp.events.addCommand("login", (player, _, login, pass) => {
   if (login == undefined || pass == undefined)
     return player.outputChatBox("Usage: /login [login] [password]");

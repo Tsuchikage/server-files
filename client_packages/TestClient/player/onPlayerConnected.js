@@ -13,7 +13,7 @@ mp.events.add("showRegisterWindow", () => {
   mp.game.cam.renderScriptCams(true, false, 0, true, false);
   player.freezePosition(true);
   mp.gui.chat.activate(false);
-  //mp.gui.chat.show(false);
+  mp.gui.chat.show(false);
   mp.game.ui.displayRadar(false);
   mp.gui.cursor.visible = true;
 
@@ -21,9 +21,13 @@ mp.events.add("showRegisterWindow", () => {
 });
 
 mp.events.add("loginToClient", (login, pass) => {
-  //   if (login.length < 5 || pass.length < 5)
-  //     return mp.game.graphics.notify("~r~Login or password is too short");
+  // if (login.length < 5 || pass.length < 5)
+  //   return mp.game.graphics.notify("~r~Login or password is too short");
   mp.events.callRemote("loginToServer", login, pass);
+});
+
+mp.events.add("registerToClient", (login, pass) => {
+  mp.events.callRemote("registerToServer", login, pass);
 });
 
 mp.events.add("regSuccess", () => {
